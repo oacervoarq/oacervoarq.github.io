@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Caderno Aberto de Referências, Paletas &amp; Diagramação • @oacervo.arq</title>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Cormorant+Garamond:ital,wght@1,700&family=Courier+Prime:wght@400;700&family=DM+Sans:wght@700&family=Fraunces:ital,wght@1,800&family=Manrope:wght@500;700;800&family=Playfair+Display:ital,wght@0,700;1,700;1,900&family=Space+Mono:wght@400;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cherry: #6F060B;
+      --blue: #BDD3E1;
+      --butter: #FEF8D6;
+      --periwinkle: #7895CD;
+      --pastel: #C0D5F5;
+      --cream: #F3EBE0;
+      --ink: #302522;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--cream); color: var(--ink); font-family: 'Manrope', sans-serif; line-height: 1.5; }
+    .stripes { height: 22px; background: repeating-linear-gradient(90deg, var(--cream) 0px, var(--cream) 48px, var(--blue) 48px, var(--blue) 96px); border-bottom: 2.5px solid var(--cherry); }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 36px 20px 80px; }
+    .nav-back { display: inline-block; font-family: 'Courier Prime', monospace; font-size: 13px; font-weight: 700; color: var(--cherry); text-decoration: none; margin-bottom: 20px; border-bottom: 1.5px solid var(--cherry); }
+    .hero { background: var(--butter); border: 2.5px solid var(--cherry); box-shadow: 8px 8px 0 var(--cherry); padding: 36px 32px; margin-bottom: 44px; position: relative; }
+    .meta { font-family: 'Courier Prime', monospace; font-size: 12px; font-weight: 700; color: var(--cherry); letter-spacing: 0.06em; margin-bottom: 12px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+    .hero h1 { font-size: clamp(30px, 4.4vw, 50px); color: var(--cherry); font-weight: 800; line-height: 1.02; letter-spacing: -0.03em; margin-bottom: 14px; }
+    .hero h1 em { font-family: 'Playfair Display', serif; font-weight: 900; }
+    .hero p { font-size: 16px; max-width: 720px; }
+    .sec-head { margin: 48px 0 22px; border-bottom: 2px solid var(--cherry); padding-bottom: 10px; display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; }
+    .sec-head h2 { font-size: 28px; color: var(--cherry); font-weight: 800; letter-spacing: -0.02em; }
+    .sec-head h2 em { font-family: 'Playfair Display', serif; }
+    .sec-head span { font-family: 'Courier Prime', monospace; font-size: 12px; color: var(--cherry); font-weight: 700; }
+
+    /* Paletas copiáveis */
+    .palettes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 22px; }
+    .pal-card { background: #FAF7F2; border: 2px solid var(--cherry); box-shadow: 5px 5px 0 var(--cherry); padding: 20px; }
+    .pal-title { font-size: 17px; font-weight: 800; color: var(--cherry); margin-bottom: 4px; }
+    .pal-use { font-size: 12.5px; color: var(--ink); margin-bottom: 14px; }
+    .swatches { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; }
+    .swatch { border: 1.5px solid var(--ink); cursor: pointer; text-align: center; background: #fff; transition: transform 0.12s ease; }
+    .swatch:hover { transform: translateY(-3px); }
+    .swatch-color { height: 46px; width: 100%; }
+    .swatch-hex { font-family: 'Courier Prime', monospace; font-size: 10px; font-weight: 700; padding: 4px 2px; color: var(--ink); }
+
+    /* Fontes */
+    .fonts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 22px; }
+    .font-card { background: #FFFFFF; border: 2px solid var(--cherry); box-shadow: 5px 5px 0 var(--blue); padding: 22px; }
+    .font-sample { background: var(--cream); border: 1.5px dashed var(--cherry); padding: 18px; margin: 12px 0; min-height: 112px; display: flex; flex-direction: column; justify-content: center; }
+    .font-meta { font-family: 'Courier Prime', monospace; font-size: 11px; color: var(--cherry); font-weight: 700; }
+
+    /* Checklist Interativo */
+    .checklist-box { background: var(--blue); border: 2.5px solid var(--cherry); box-shadow: 7px 7px 0 var(--cherry); padding: 28px; }
+    .check-item { display: flex; align-items: center; gap: 12px; background: #FAF7F2; border: 1.5px solid var(--cherry); padding: 12px 16px; margin-bottom: 10px; cursor: pointer; font-size: 15px; font-weight: 600; }
+    .check-item input { width: 20px; height: 20px; accent-color: var(--cherry); cursor: pointer; }
+    .check-progress { font-family: 'Courier Prime', monospace; font-size: 13px; font-weight: 700; color: var(--cherry); margin-top: 12px; }
+
+    /* Gift CTA */
+    .gift-banner { margin-top: 48px; background: var(--cherry); color: var(--cream); border: 2.5px solid var(--ink); box-shadow: 9px 9px 0 var(--ink); padding: 36px 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+    .gift-banner h3 { font-size: 30px; color: var(--butter); font-weight: 800; line-height: 1.08; margin-bottom: 8px; }
+    .gift-banner h3 em { font-family: 'Playfair Display', serif; }
+    .btn-gift { background: var(--butter); color: var(--cherry); text-decoration: none; font-weight: 800; font-size: 15px; padding: 15px 26px; border: 2px solid var(--ink); box-shadow: 4px 4px 0 var(--ink); white-space: nowrap; }
+
+    .toast { position: fixed; bottom: 24px; right: 24px; background: var(--cherry); color: var(--butter); font-family: 'Courier Prime', monospace; font-weight: 700; font-size: 13px; padding: 12px 18px; border: 2px solid var(--ink); box-shadow: 4px 4px 0 var(--ink); opacity: 0; pointer-events: none; transition: opacity 0.2s ease; }
+    .toast.show { opacity: 1; }
+  </style>
+</head>
+<body>
+  <div class="stripes"></div>
+  <div class="wrap">
+    <a href="link_na_bio_cantinho_criativo.html" class="nav-back">← voltar ao cantinho criativo (@oacervo.arq)</a>
+
+    <header class="hero">
+      <div class="meta">
+        <span>CADERNO ABERTO DO ESTÚDIO • CONSULTA GRATUITA</span>
+        <span>SALVE NOS FAVORITOS ★</span>
+      </div>
+      <h1>Repertório visual, paletas HEX &amp; <em>diagramação</em> sem ruído.</h1>
+      <p>Reunimos nesta página aberta as combinações cromáticas, pares tipográficos gratuitos e o checklist de pré-entrega que usamos nos nossos estudos. Toque em qualquer cor para copiar o código HEX na hora.</p>
+    </header>
+
+    <!-- 01. PALETAS COPIÁVEIS -->
+    <div class="sec-head">
+      <h2>01. Paletas para <em>Plantas Humanizadas</em> &amp; Pranchas</h2>
+      <span>CLIQUE NA COR PARA COPIAR O HEX</span>
+    </div>
+
+    <div class="palettes-grid">
+      <div class="pal-card">
+        <div class="pal-title">P01 • Areia &amp; Terracota (Estilo Concurso)</div>
+        <div class="pal-use">Fundo quente em papel areia com paredes/axonometria em terracota queimado.</div>
+        <div class="swatches">
+          <div class="swatch" onclick="copyHex('#F2EAE0')"><div class="swatch-color" style="background:#F2EAE0"></div><div class="swatch-hex">#F2EAE0</div></div>
+          <div class="swatch" onclick="copyHex('#B85D43')"><div class="swatch-color" style="background:#B85D43"></div><div class="swatch-hex">#B85D43</div></div>
+          <div class="swatch" onclick="copyHex('#D9A78B')"><div class="swatch-color" style="background:#D9A78B"></div><div class="swatch-hex">#D9A78B</div></div>
+          <div class="swatch" onclick="copyHex('#7D8C75')"><div class="swatch-color" style="background:#7D8C75"></div><div class="swatch-hex">#7D8C75</div></div>
+          <div class="swatch" onclick="copyHex('#E3D5C5')"><div class="swatch-color" style="background:#E3D5C5"></div><div class="swatch-hex">#E3D5C5</div></div>
+          <div class="swatch" onclick="copyHex('#2E2522')"><div class="swatch-color" style="background:#2E2522"></div><div class="swatch-hex">#2E2522</div></div>
+        </div>
+      </div>
+
+      <div class="pal-card">
+        <div class="pal-title">P02 • Vinho Editorial &amp; Linho (Rihla)</div>
+        <div class="pal-use">Contraste clássico para colunas laterais de diagramas e cortes em alvenaria.</div>
+        <div class="swatches">
+          <div class="swatch" onclick="copyHex('#FAF6F0')"><div class="swatch-color" style="background:#FAF6F0"></div><div class="swatch-hex">#FAF6F0</div></div>
+          <div class="swatch" onclick="copyHex('#591414')"><div class="swatch-color" style="background:#591414"></div><div class="swatch-hex">#591414</div></div>
+          <div class="swatch" onclick="copyHex('#9E3B33')"><div class="swatch-color" style="background:#9E3B33"></div><div class="swatch-hex">#9E3B33</div></div>
+          <div class="swatch" onclick="copyHex('#D8CFC2')"><div class="swatch-color" style="background:#D8CFC2"></div><div class="swatch-hex">#D8CFC2</div></div>
+          <div class="swatch" onclick="copyHex('#8C9A8E')"><div class="swatch-color" style="background:#8C9A8E"></div><div class="swatch-hex">#8C9A8E</div></div>
+          <div class="swatch" onclick="copyHex('#241C1A')"><div class="swatch-color" style="background:#241C1A"></div><div class="swatch-hex">#241C1A</div></div>
+        </div>
+      </div>
+
+      <div class="pal-card">
+        <div class="pal-title">P03 • Oliva Bioclimático &amp; Concreto</div>
+        <div class="pal-use">Perfeita para projetos urbanos, implantação paisagística e cortes ambientais.</div>
+        <div class="swatches">
+          <div class="swatch" onclick="copyHex('#F5F3EE')"><div class="swatch-color" style="background:#F5F3EE"></div><div class="swatch-hex">#F5F3EE</div></div>
+          <div class="swatch" onclick="copyHex('#4A5849')"><div class="swatch-color" style="background:#4A5849"></div><div class="swatch-hex">#4A5849</div></div>
+          <div class="swatch" onclick="copyHex('#8FA38B')"><div class="swatch-color" style="background:#8FA38B"></div><div class="swatch-hex">#8FA38B</div></div>
+          <div class="swatch" onclick="copyHex('#C9B99F')"><div class="swatch-color" style="background:#C9B99F"></div><div class="swatch-hex">#C9B99F</div></div>
+          <div class="swatch" onclick="copyHex('#D5D2CB')"><div class="swatch-color" style="background:#D5D2CB"></div><div class="swatch-hex">#D5D2CB</div></div>
+          <div class="swatch" onclick="copyHex('#2B302A')"><div class="swatch-color" style="background:#2B302A"></div><div class="swatch-hex">#2B302A</div></div>
+        </div>
+      </div>
+
+      <div class="pal-card">
+        <div class="pal-title">P04 • Retro Playful Editorial (Assinatura)</div>
+        <div class="pal-use">Paleta autoral do @oacervo.arq para portfólios criativos, capas e diagramas.</div>
+        <div class="swatches">
+          <div class="swatch" onclick="copyHex('#F3EBE0')"><div class="swatch-color" style="background:#F3EBE0"></div><div class="swatch-hex">#F3EBE0</div></div>
+          <div class="swatch" onclick="copyHex('#6F060B')"><div class="swatch-color" style="background:#6F060B"></div><div class="swatch-hex">#6F060B</div></div>
+          <div class="swatch" onclick="copyHex('#BDD3E1')"><div class="swatch-color" style="background:#BDD3E1"></div><div class="swatch-hex">#BDD3E1</div></div>
+          <div class="swatch" onclick="copyHex('#FEF8D6')"><div class="swatch-color" style="background:#FEF8D6"></div><div class="swatch-hex">#FEF8D6</div></div>
+          <div class="swatch" onclick="copyHex('#7895CD')"><div class="swatch-color" style="background:#7895CD"></div><div class="swatch-hex">#7895CD</div></div>
+          <div class="swatch" onclick="copyHex('#302522')"><div class="swatch-color" style="background:#302522"></div><div class="swatch-hex">#302522</div></div>
+        </div>
+      </div>
+
+      <div class="pal-card">
+        <div class="pal-title">P05 • Nórdico Madeira MLC &amp; Areia</div>
+        <div class="pal-use">Minimalismo escandinavo com muito espaço negativo e destaque na estrutura.</div>
+        <div class="swatches">
+          <div class="swatch" onclick="copyHex('#F7F5F0')"><div class="swatch-color" style="background:#F7F5F0"></div><div class="swatch-hex">#F7F5F0</div></div>
+          <div class="swatch" onclick="copyHex('#C89D6C')"><div class="swatch-color" style="background:#C89D6C"></div><div class="swatch-hex">#C89D6C</div></div>
+          <div class="swatch" onclick="copyHex('#EAE3D5')"><div class="swatch-color" style="background:#EAE3D5"></div><div class="swatch-hex">#EAE3D5</div></div>
+          <div class="swatch" onclick="copyHex('#9FB1BC')"><div class="swatch-color" style="background:#9FB1BC"></div><div class="swatch-hex">#9FB1BC</div></div>
+          <div class="swatch" onclick="copyHex('#6E675F')"><div class="swatch-color" style="background:#6E675F"></div><div class="swatch-hex">#6E675F</div></div>
+          <div class="swatch" onclick="copyHex('#1F1E1C')"><div class="swatch-color" style="background:#1F1E1C"></div><div class="swatch-hex">#1F1E1C</div></div>
+        </div>
+      </div>
+
+      <div class="pal-card">
+        <div class="pal-title">P06 • Azul Cobalto &amp; Pergaminho</div>
+        <div class="pal-use">Excelente para axonometrias explodidas, mapas urbanos e fluxogramas técnicos.</div>
+        <div class="swatches">
+          <div class="swatch" onclick="copyHex('#F4EFE6')"><div class="swatch-color" style="background:#F4EFE6"></div><div class="swatch-hex">#F4EFE6</div></div>
+          <div class="swatch" onclick="copyHex('#1E3A5F')"><div class="swatch-color" style="background:#1E3A5F"></div><div class="swatch-hex">#1E3A5F</div></div>
+          <div class="swatch" onclick="copyHex('#7A9CC6')"><div class="swatch-color" style="background:#7A9CC6"></div><div class="swatch-hex">#7A9CC6</div></div>
+          <div class="swatch" onclick="copyHex('#D9C39A')"><div class="swatch-color" style="background:#D9C39A"></div><div class="swatch-hex">#D9C39A</div></div>
+          <div class="swatch" onclick="copyHex('#C95B3C')"><div class="swatch-color" style="background:#C95B3C"></div><div class="swatch-hex">#C95B3C</div></div>
+          <div class="swatch" onclick="copyHex('#2B2B2B')"><div class="swatch-color" style="background:#2B2B2B"></div><div class="swatch-hex">#2B2B2B</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 02. COMBINAÇÕES DE FONTES -->
+    <div class="sec-head">
+      <h2>02. Pares de <em>Fontes Gratuitas</em> (Google Fonts &amp; Canva)</h2>
+      <span>MÁXIMO DE 2 A 3 FONTES POR PRANCHA</span>
+    </div>
+
+    <div class="fonts-grid">
+      <div class="font-card">
+        <div class="font-meta">COMBO 01 • EDITORIAL CONTEMPORÂNEO</div>
+        <div class="font-sample">
+          <div style="font-family:'Manrope',sans-serif; font-weight:800; font-size:28px; color:#6F060B; letter-spacing:-0.03em;">
+            Pavilhão <span style="font-family:'Playfair Display',serif; font-style:italic; font-weight:900;">Luz</span> &amp; Matéria
+          </div>
+          <div style="font-family:'Courier Prime',monospace; font-size:11px; margin-top:6px;">IMPLANTAÇÃO GERAL • ESCALA 1:200</div>
+        </div>
+        <p style="font-size:13px;"><strong>Títulos:</strong> Manrope ExtraBold + Playfair Display Italic<br><strong>Cotas/Escalas:</strong> Courier Prime</p>
+      </div>
+
+      <div class="font-card">
+        <div class="font-meta">COMBO 02 • REVISTA &amp; PORTFÓLIO ISSUU</div>
+        <div class="font-sample">
+          <div style="font-family:'DM Sans',sans-serif; font-weight:700; font-size:28px; color:#591414; letter-spacing:-0.02em;">
+            Galeria do <span style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:700; font-size:33px;">Pátio</span>
+          </div>
+          <div style="font-family:'Space Mono',monospace; font-size:10.5px; margin-top:6px;">CORTE LONGITUDINAL AA • NÍVEL +4.50</div>
+        </div>
+        <p style="font-size:13px;"><strong>Títulos:</strong> DM Sans Bold + Cormorant Garamond Italic<br><strong>Cotas/Escalas:</strong> Space Mono</p>
+      </div>
+
+      <div class="font-card">
+        <div class="font-meta">COMBO 03 • CONCURSO NACIONAL &amp; TFG</div>
+        <div class="font-sample">
+          <div style="font-family:'Syne',sans-serif; font-weight:800; font-size:25px; color:#2B302A; letter-spacing:-0.03em;">
+             Estufa <span style="font-family:'Fraunces',serif; font-style:italic; font-weight:800; color:#4A5849;">Botânica</span>
+          </div>
+          <div style="font-family:'Space Mono',monospace; font-size:10.5px; margin-top:6px;">AXONOMETRIA EXPLODIDA • ESTRUTURA MLC</div>
+        </div>
+        <p style="font-size:13px;"><strong>Títulos:</strong> Syne ExtraBold + Fraunces Black Italic<br><strong>Cotas/Escalas:</strong> Space Mono</p>
+      </div>
+    </div>
+
+    <!-- 03. CHECKLIST INTERATIVO -->
+    <div class="sec-head">
+      <h2>03. Checklist Rápido de <em>Pré-Entrega</em></h2>
+      <span>MARQUE ANTES DE EXPORTAR SEU PDF</span>
+    </div>
+
+    <div class="checklist-box">
+      <label class="check-item"><input type="checkbox" onchange="updateCount()"> Há pelo menos 25% de área de respiro (fundo livre sem imagens amontoadas)?</label>
+      <label class="check-item"><input type="checkbox" onchange="updateCount()"> Troquei o fundo branco puro (#FFFFFF) por um tom quente suave (#F3EBE0 ou #F5F3EE)?</label>
+      <label class="check-item"><input type="checkbox" onchange="updateCount()"> Removi as caixas/bordas pretas pesadas ao redor das plantas e cortes?</label>
+      <label class="check-item"><input type="checkbox" onchange="updateCount()"> Todos os textos estão alinhados à esquerda em colunas curtas (sem "justificado" esburacado)?</label>
+      <label class="check-item"><input type="checkbox" onchange="updateCount()"> Escala gráfica, Norte verdadeiro e níveis estão visíveis em todas as plantas?</label>
+      <label class="check-item"><input type="checkbox" onchange="updateCount()"> Planta, corte e diagramas conversam na mesma paleta de 5 a 6 cores?</label>
+      <div id="check-status" class="check-progress">0 de 6 itens revisados</div>
+    </div>
+
+    <!-- 04. PRESENTE DE BOAS-VINDAS -->
+    <section id="presente" class="gift-banner">
+      <div style="max-width:620px;">
+        <div style="font-family:'Courier Prime',monospace; font-size:12px; color:var(--butter); margin-bottom:6px;">★ PRESENTE ABERTO DO ESTÚDIO • DOWNLOAD DIRETO</div>
+        <h3>Baixe grátis nosso <em>Kit de Boas-Vindas</em></h3>
+        <p style="font-size:14.5px; opacity:0.94;">Inclui a Folha de Cola em alta resolução, 2 texturas analógicas de papel creme 35mm, 2 hachuras .PAT reais (Madeira Ripada &amp; Concreto), amostra de blocos AutoCAD (.DWG/.DXF) e componentes SketchUp (.SKP).</p>
+      </div>
+      <a href="produtos/00_kit_gratuito_boas_vindas_dm/Kit_Gratuito_Boas_Vindas_Acervo_Arq.zip" class="btn-gift">Baixar Kit Gratuito (.ZIP) →</a>
+    </section>
+  </div>
+
+  <div id="toast" class="toast">Código HEX copiado!</div>
+
+  <script>
+    function copyHex(code) {
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(code);
+      }
+      var t = document.getElementById('toast');
+      t.textContent = 'Cor ' + code + ' copiada!';
+      t.classList.add('show');
+      setTimeout(function(){ t.classList.remove('show'); }, 1800);
+    }
+    function updateCount() {
+      var boxes = document.querySelectorAll('.check-item input');
+      var done = 0;
+      boxes.forEach(function(b){ if (b.checked) done++; });
+      var el = document.getElementById('check-status');
+      el.textContent = done + ' de ' + boxes.length + ' itens revisados' + (done === boxes.length ? ' • prancha pronta para brilhar! ✨' : '');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="description" content="Acervo Arq • Curadoria e referências visuais para sua rotina na arquitetura." />
+  <title>Acervo Arq • Nosso Cantinho Criativo (@oacervo.arq)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Courier+Prime:wght@400;700&family=Manrope:wght@500;700;800&family=Playfair+Display:ital,wght@0,700;1,700;1,900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cherry: #6F060B;
+      --vintage-blue: #BDD3E1;
+      --butter: #FEF8D6;
+      --periwinkle: #7895CD;
+      --pastel-blue: #C0D5F5;
+      --cream: #F3EBE0;
+      --ink: #302522;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      font-family: 'Manrope', sans-serif;
+      color: var(--ink);
+      background: repeating-linear-gradient(
+        90deg,
+        var(--cream) 0px,
+        var(--cream) 48px,
+        var(--vintage-blue) 48px,
+        var(--vintage-blue) 96px
+      );
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 36px 16px 56px;
+    }
+
+    .editorial-sheet {
+      width: 100%;
+      max-width: 450px;
+      background-color: var(--cream);
+      border: 2.5px solid var(--cherry);
+      box-shadow: 0 14px 32px rgba(48, 37, 34, 0.16);
+      padding: 36px 26px 32px;
+      position: relative;
+    }
+
+    .masking-tape {
+      width: 136px;
+      height: 30px;
+      background: var(--butter);
+      opacity: 0.94;
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-2deg);
+      box-shadow: 0 2px 6px rgba(48, 37, 34, 0.08);
+      border-left: 1px dashed rgba(111, 6, 11, 0.25);
+      border-right: 1px dashed rgba(111, 6, 11, 0.25);
+    }
+
+    .top-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Courier Prime', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--cherry);
+      border-bottom: 1.5px solid var(--cherry);
+      padding-bottom: 10px;
+      margin-bottom: 24px;
+    }
+
+    .profile-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .stamp-avatar {
+      width: 104px;
+      height: 104px;
+      border-radius: 50%;
+      background-color: var(--cherry);
+      margin: 0 auto 16px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 14px rgba(111, 6, 11, 0.18);
+    }
+
+    .stamp-avatar::before {
+      content: "";
+      position: absolute;
+      inset: 7px;
+      border-radius: 50%;
+      border: 1px solid var(--cream);
+    }
+
+    .stamp-avatar::after {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border-radius: 50%;
+      border: 2px dashed var(--cream);
+    }
+
+    .stamp-letter {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-weight: 700;
+      font-size: 46px;
+      line-height: 1;
+      color: var(--cream);
+      margin-top: -4px;
+    }
+
+    .stamp-sub {
+      font-family: 'Courier Prime', monospace;
+      font-size: 7px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--cream);
+      margin-top: 2px;
+    }
+
+    .handle {
+      font-family: 'Courier Prime', monospace;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--cherry);
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+
+    .headline {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--cherry);
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+    }
+
+    .headline em {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 900;
+      font-style: italic;
+    }
+
+    .bio-note {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.45;
+      max-width: 350px;
+      margin: 0 auto;
+    }
+
+    .links-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin: 26px 0;
+    }
+
+    .link-card {
+      display: block;
+      text-decoration: none;
+      border: 2px solid var(--cherry);
+      padding: 16px 18px;
+      position: relative;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      box-shadow: 4px 4px 0px var(--cherry);
+      cursor: pointer;
+      text-align: left;
+      width: 100%;
+      font-family: inherit;
+    }
+
+    .link-card:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0px var(--cherry);
+    }
+
+    .link-card.primary { background-color: var(--butter); }
+    .link-card.secondary { background-color: var(--vintage-blue); }
+    .link-card.tertiary { background-color: #FAF7F2; }
+    .link-card.dark {
+      background-color: var(--cherry);
+      color: var(--cream);
+      box-shadow: 4px 4px 0px var(--ink);
+    }
+
+    .link-tag {
+      font-family: 'Courier Prime', monospace;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--cherry);
+      margin-bottom: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .link-card.dark .link-tag { color: var(--butter); }
+
+    .link-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--cherry);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 5px;
+    }
+
+    .link-title em {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-weight: 700;
+    }
+
+    .link-card.dark .link-title { color: var(--cream); }
+
+    .link-desc {
+      font-size: 13px;
+      color: var(--ink);
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    .link-card.dark .link-desc {
+      color: var(--cream);
+      opacity: 0.92;
+    }
+
+    .badge-pill {
+      background-color: var(--periwinkle);
+      color: var(--butter);
+      font-family: 'Manrope', sans-serif;
+      font-weight: 800;
+      font-size: 10px;
+      padding: 3px 9px;
+      border-radius: 99px;
+      letter-spacing: 0.02em;
+    }
+
+    .badge-pill.cherry {
+      background-color: var(--cherry);
+      color: var(--butter);
+    }
+
+    /* Modal Lista VIP (Em Breve) */
+    .vip-modal {
+      display: none;
+      margin-top: -6px;
+      background: #FFFFFF;
+      border: 2px dashed var(--cherry);
+      padding: 16px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .vip-modal.open { display: block; }
+    .vip-modal strong { color: var(--cherry); }
+    .vip-btn {
+      display: inline-block;
+      margin-top: 10px;
+      background: var(--cherry);
+      color: var(--cream);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 12.5px;
+      padding: 9px 14px;
+      border: 1.5px solid var(--ink);
+    }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 22px;
+      padding-top: 16px;
+      border-top: 1px dashed var(--cherry);
+    }
+
+    .caveat-quote {
+      font-family: 'Caveat', cursive;
+      font-size: 23px;
+      font-weight: 700;
+      color: var(--cherry);
+      margin-bottom: 6px;
+    }
+
+    .copyright {
+      font-family: 'Courier Prime', monospace;
+      font-size: 10px;
+      color: var(--ink);
+      letter-spacing: 0.08em;
+    }
+  </style>
+</head>
+<body>
+  <main class="editorial-sheet">
+    <div class="masking-tape"></div>
+
+    <div class="top-meta">
+      <span>JORNAL DE ESTÚDIO • EDIÇÃO 001</span>
+      <span>OACERVO.ARQ</span>
+    </div>
+
+    <header class="profile-header">
+      <div class="stamp-avatar">
+        <div class="stamp-letter">A.</div>
+        <div class="stamp-sub">ACERVO • ARQ</div>
+      </div>
+      <div class="handle">@oacervo.arq</div>
+      <h1 class="headline">nosso <em>cantinho</em><br>criativo.</h1>
+      <p class="bio-note">
+        Dicas de projeto, referências visuais e ideias pra sua rotina na arquitetura ✨
+      </p>
+    </header>
+
+    <section class="links-stack">
+      <!-- 01. Curadoria Interativa Aberta -->
+      <a href="curadoria_referencias_acervo.html" class="link-card secondary">
+        <div class="link-tag">
+          <span>01 / CURADORIA ABERTA • ACESSO LIVRE</span>
+          <span class="badge-pill cherry">interativo</span>
+        </div>
+        <div class="link-title">Caderno de <em>Referências</em> &amp; Paletas HEX</div>
+        <div class="link-desc">Copie paletas de cores com 1 clique, teste pares de fontes e use nosso checklist de pranchas.</div>
+      </a>
+
+      <!-- 02. Kit Gratuito de Boas-Vindas -->
+      <a href="produtos/00_kit_gratuito_boas_vindas_dm/Kit_Gratuito_Boas_Vindas_Acervo_Arq.zip" class="link-card primary">
+        <div class="link-tag">
+          <span>02 / PRESENTE DO ESTÚDIO • DOWNLOAD GRÁTIS</span>
+          <span class="badge-pill">grátis!</span>
+        </div>
+        <div class="link-title">Kit de <em>Boas-Vindas</em> (Folha de Cola + Amostras)</div>
+        <div class="link-desc">Guia rápido de diagramação, texturas de papel 35mm, hachuras .PAT e amostra de blocos CAD/SKP.</div>
+      </a>
+
+      <!-- 03. Bastidores / Lista VIP Em Breve -->
+      <button type="button" class="link-card tertiary" onclick="document.getElementById('vip-box').classList.toggle('open')">
+        <div class="link-tag">
+          <span>03 / ACERVO &amp; MATERIAIS • [EM BREVE]</span>
+          <span>✷</span>
+        </div>
+        <div class="link-title">Packs Editáveis &amp; <em>Bibliotecas</em> do Estúdio</div>
+        <div class="link-desc">Estamos lapidando nossos templates de pranchas, diagramas, biblioteca CAD/SKP e portfólio. Toque para saber antes!</div>
+      </button>
+      <div id="vip-box" class="vip-modal">
+        <strong>Em fase final de curadoria no estúdio ✨</strong><br>
+        Estamos preparando nossos pacotes personalizáveis de pranchas estilo concurso, diagramas axonométricos, blocos reais AutoCAD/SketchUp e portfólio editorial.<br>
+        <a href="https://ig.me/m/oacervo.arq" target="_blank" rel="noopener" class="vip-btn">Pedir aviso na DM ("LISTA VIP") →</a>
+      </div>
+
+      <!-- 04. Contato Direto & Comunidade -->
+      <a href="https://instagram.com/oacervo.arq" target="_blank" rel="noopener" class="link-card dark">
+        <div class="link-tag">
+          <span>04 / COMUNIDADE &amp; TROCA • DM</span>
+          <span>@</span>
+        </div>
+        <div class="link-title">Vamos <em>conversar?</em></div>
+        <div class="link-desc">Sugira o próximo tema do perfil, mande sua dúvida de apresentação ou fale sobre parcerias e projetos.</div>
+      </a>
+    </section>
+
+    <footer class="footer-note">
+      <div class="caveat-quote">feito com carinho para quem vive arquitetura ♡</div>
+      <div class="copyright">ORIGINAL • ACERVO ARQ • EST. 2026</div>
+    </footer>
+  </main>
+</body>
+</html>
